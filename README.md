@@ -1,3 +1,3 @@
-# Dhananjay-ui-React-lib
+# ui-React-lib
 
 TODO
