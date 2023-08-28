@@ -1,0 +1,87 @@
+import { Story, Meta } from '@storybook/addon-docs';
+import { H1 } from '../typography';
+
+<style>{`
+  h1.sbdocs-h1 {
+    font-family: 'Ariel';
+  }
+
+  div.sbdocs-wrapper {
+    padding: 20px;
+  }
+`}</style>
+
+<Meta title="Styles/Creating a Theme" />
+
+# Creating a Theme
+
+POC UI Core provides an MUI 5 theme customised to adhere to POC UI style guide
+conventions. You can get an instance of the theme by calling the `createTheme`
+function. 
+
+```
+<!-- createTheme function signature -->
+
+createTheme = (themeOptions?: ThemeOptions) => Theme
+```
+
+Internally, `createTheme` works as follows:
+
+- If provided, the optional MUI theme overrides are deep merged with the default
+POC UI Core theming options.
+- The resulting theme options are then passed internally to the MUI
+`createTheme` function. The result is then returned for use in your application. 
+
+The code snippet below shows how you can use `createTheme` to get an instance of
+the POC UI Core default theme. 
+
+```
+import { CssBaseline } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+import { createTheme } from 'poc-ui-mat-lib';
+
+const theme = createTheme();
+
+export default App = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+
+      {/* Components added here will be themed */}
+    </ThemeProvider>
+  );
+};
+```
+
+If you would like to provide application-specific theme overrides, you may do so
+as follows. Your overrides will be merged with the base theme.
+
+```
+import { CssBaseline } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+import { createTheme } from 'poc-ui-mat-lib';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#0052CC'
+    }
+  },
+  components: {
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          borderRadius: '2px'
+        }
+      }
+    }
+  }
+});
+```
+
+### References
+
+MUI 5 documentation:
+
+- [Theming](https://mui.com/customization/theming)
+- [createTheme API](https://mui.com/customization/theming/#api)

@@ -1,0 +1,72 @@
+import { Story, Meta, Canvas } from '@storybook/addon-docs';
+import { Body } from '../../typography';
+import { ArgsTable } from '@storybook/addon-docs';
+
+<style>{`
+  h1.sbdocs-h1 {
+    font-family: 'Mulish';
+  }
+
+  div.sbdocs-wrapper {
+    padding: 20px;
+  }
+
+  .MuiTypography-body2 {
+    margin-top: 10px;
+  }
+`}</style>
+
+<Meta title="Styles/Typography/Body" component={Body} />
+
+# `<Body />`
+
+This component accepts a `variant` prop, which may be either `body1` or `body2`.
+By default, it is equivalent to `<Typography variant="body1">`. It renders a 
+styled `<p />` element.
+
+### Usage
+
+```
+import { Body } from 'poc-ui-mat-lib';
+
+// or
+
+import Body from 'poc-ui-mat-lib/typography/Body';
+
+// ... inside your component ...
+
+return (
+  <>
+    <Body>Body 1, default</Body>
+
+    <Body variant="body2">Body 2</Body>
+  </>
+);
+```
+
+### Example
+
+<Canvas>
+  <Story name="Body">
+    <Body>
+      body1 body1 body1 body1 body1 body1 body1 body1 body1 body1 body1 body1
+      body1 body1 body1 body1 body1 body1 body1 body1 body1 body1 body1 body1
+      body1 body1 body1 body1 body1 body1 body1 body1 body1 body1 body1 body1
+      body1 body1 body1 body1 body1 body1 body1 body1 body1 body1 body1 body1
+      body1 body1 body1 body1 body1 body1 body1 body1 body1 body1 body1 body1
+      body1 body1 body1 body1 body1 body1 body1 body1
+    </Body>
+    <Body variant="body2">
+      body2 body2 body2 body2 body2 body2 body2 body2 body2 body2 body2 body2
+      body2 body2 body2 body2 body2 body2 body2 body2 body2 body2 body2 body2
+      body2 body2 body2 body2 body2 body2 body2 body2 body2 body2 body2 body2
+      body2 body2 body2 body2 body2 body2 body2 body2 body2 body2 body2 body2
+      body2 body2 body2 body2 body2 body2 body2 body2 body2 body2 body2 body2
+      body2 body2 body2 body2 body2 body2 body2 body2
+    </Body>
+  </Story>
+</Canvas>
+
+### Props
+
+<ArgsTable of={Body} />

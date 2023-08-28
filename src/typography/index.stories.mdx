@@ -1,0 +1,69 @@
+import { Story, Meta, Canvas } from '@storybook/addon-docs';
+import { H1, H2, H3, H4, Body, Caption } from '../typography';
+
+<style>{`
+  h1.sbdocs-h1 {
+    font-family: 'Mulish';
+  }
+
+  div.sbdocs-wrapper {
+    padding: 20px;
+  }
+`}</style>
+
+<Meta title="Styles/Typography/Overview" />
+
+# Typography
+
+POC UI Core typography is based on the [Mulish](https://fonts.google.com/specimen/Mulish)
+font. To set up typography in your application:
+
+- Import the `createTheme` function and use it to create a `Theme` instance.  
+  Internally, POC UI Core uses a [Fontsource](https://fontsource.org) NPM package
+  to source the Mulish font. Importing `createTheme` will cause the stylesheet
+  provided by this package to be imported, loading the font.
+- Set up an MUI `ThemeProvider` with a nested `CssBaseline` component.  
+  As well as applying the MUI 5 CSS baseline styles, the `CssBaseline` component
+  will also ensure that POC UI Core typography conventions are applied to the 
+  native `<h1 />`, `<h2 />`, `<h3 />`, `<h4 />`, and`<p />` elements. Nesting
+  it within `ThemeProvider` is important, otherwise it will not pick up
+  POC UI Core theme customisations.
+
+```
+import { CssBaseline } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+import { createTheme } from 'poc-ui-mat-lib';
+
+const theme = createTheme();
+
+export default App = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+
+      {/* Components added here will be will have POC UI Core typography applied */}
+    </ThemeProvider>
+  );
+};
+```
+
+### Typography Components
+
+In addition to styling native HTML elements, POC UI Core also provides a number
+of convenience components that are thin wrappers around the MUI 5
+[`Typography`](https://mui.com/api/typography) component. Unless otherwise noted,
+the props for these components are the same as MUI 5 `Typopgraphy`, with `variant`
+prop removed. The components are described in the following sections.
+
+### References
+
+MUI 5 documentation:
+
+- [Typography system](https://mui.com/system/typography)
+- [Customization](https://mui.com/customization/typography)
+- [Typography API](https://mui.com/api/typography)
+
+Mulish font:
+
+- [Google Fonts](https://fonts.google.com/specimen/Mulish)
+- [Fontsource](https://fontsource.org/fonts/mulish)

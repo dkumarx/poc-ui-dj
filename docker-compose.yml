@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  node:
+    image: ${REPOSITORY_URL}/node:${NODE_VERSION}
+    working_dir: /opt/app
+    volumes:
+      - .:/opt/app
+      - ./node_modules:/opt/app/node_modules
+    environment:
+      - BUILD_VERSION
+  jfrog:
+    image: ${REPOSITORY_URL}/<jforge image name>
+    working_dir: /opt/app
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp:/tmp
+      - .:/opt/app

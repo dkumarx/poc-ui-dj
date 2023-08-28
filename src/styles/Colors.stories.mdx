@@ -1,0 +1,136 @@
+import Color from './Color';
+
+import { Meta } from '@storybook/addon-docs';
+
+<style>{`
+  h1.sbdocs-h1 {
+    font-family: 'Mulish';
+  }
+
+  div.sbdocs-wrapper {
+    padding: 20px;
+  }
+
+  div.swatch {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  div.swatch > div:nth-of-type(1) {
+    height: 25px;
+    width: 25px;
+  }
+
+  div.swatch > div:nth-of-type(2) {
+    font-size: 14px;
+    line-height: 25px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    vertical-align: middle;
+  }
+
+  div.primary-white {
+    border: 1px solid ${ Color.Neutral.Slate };
+    background-color: ${ Color.Primary.White };
+  }
+
+
+  div.background-softgrey25 {
+    border: 1px solid ${ Color.Neutral.Slate };
+    background-color: ${ Color.Background.SoftGrey25 };
+  }
+  div.nautral-black {
+    background-color: ${ Color.Neutral.Black };
+  }
+
+  div.nautral-softgrey {
+    border: 1px solid ${ Color.Neutral.Slate };
+    background-color: ${ Color.Neutral.SoftGrey };
+  }
+
+`}</style>
+
+<Meta title="Styles/Color Palette" />
+
+# Color Palette
+
+POC UI Core provides a `Color` object that defines the HEX color codes used in
+the POC UI style guide. `Color` groups the POC UI palette into these basic
+groups:
+- `Color.Primary`.  
+  Primary brand colors.
+- `Color.Background`  
+  Colors used for block background fills.
+- `Color.Neutral`  
+  Blacks, greys and other neutral colors.
+- `Color.Button`  
+  Colors for button states.
+
+To use `Color` in your application, import it as follows.
+
+```
+import { Color } from 'poc-ui-mat-lib';
+
+// or
+
+import Color from 'poc-ui-mat-lib/styles/Color';
+```
+
+A number of convenience types are also available. These are useful if you would
+like to constrain color values passed to functions or assigned to variables, for
+example. The color types are:
+- `PrimaryColorType`  
+  `Color.Primary` color codes. 
+- `BackgroundColorType`  
+  `Color.Primary` color codes.
+- `NeutralColorType`  
+  `Color.Primary` color codes.
+- `ButtonColorType`  
+  `Color.Primary` color codes.
+- `ColorType`  
+  All color codes.
+
+The code snippet below shows how `ButtonColorType` could be used to ensure that
+a function that toggles the color of a button only receives valid color codes.
+```
+import { ButtonColorType, Color } from 'poc-ui-mat-lib';
+
+function toggleButtonColor(activeColor: ButtonColorType) {
+  // ... logic goes here ...
+}
+
+// Will work
+toggleButtonColor(Color.Button.Pressed);
+
+// Won't work
+toggleButtonColor(Color.Primary.Plum);
+```
+The following sections list the colors available in each color group.
+
+### Color.Primary
+
+
+<div class="swatch">
+  <div class="primary-white" />
+  <div>{Color.Primary.White} <code>Color.Primary.White</code></div>
+</div>
+
+### Color.Background
+
+
+<div class="swatch">
+  <div class="background-softgrey25" />
+  <div>{Color.Background.SoftGrey25} <code>Color.Background.SoftGrey25</code></div>
+</div>
+
+### Color.Neutral
+
+<div class="swatch">
+  <div class="nautral-black" />
+  <div>{Color.Neutral.Black} <code>Color.Neutral.Black</code></div>
+</div>
+
+<div class="swatch">
+  <div class="nautral-softgrey" />
+  <div>{Color.Neutral.SoftGrey} <code>Color.Neutral.SoftGrey</code></div>
+</div>

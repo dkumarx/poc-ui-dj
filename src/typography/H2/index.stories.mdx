@@ -1,0 +1,45 @@
+import { Story, Meta, Canvas } from '@storybook/addon-docs';
+import { H2 } from '../../typography';
+import { ArgsTable } from '@storybook/addon-docs';
+
+<style>{`
+  h1.sbdocs-h1 {
+    font-family: 'Mulish';
+  }
+
+  div.sbdocs-wrapper {
+    padding: 20px;
+  }
+`}</style>
+
+<Meta title="Styles/Typography/H2" component={H2} />
+
+# `<H2 />`
+
+Equivalent to `<Typography variant="h2">`. Renders a styled `<h2 />` element.
+
+### Usage
+
+```
+import { H2 } from 'poc-ui-mat-lib';
+
+// or
+
+import H2 from 'poc-ui-mat-lib/typography/H2';
+
+// ... inside your component ...
+
+return <H2>Heading 2</H2>;
+```
+
+### Example
+
+<Canvas>
+  <Story name="H2">
+    <H2>Heading 2</H2>
+  </Story>
+</Canvas>
+
+### Props
+
+<ArgsTable of={H2} />
